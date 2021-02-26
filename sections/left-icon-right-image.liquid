@@ -1,0 +1,71 @@
+<div class="container left-icon-right_one">
+  <div class="left-icon right_padding">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.sub_heding }}</p>
+    <ul>
+      {% for block in section.blocks %}
+        {% if block.settings.Banner_icon != blank %}
+       	 <li><img src="{{block.settings.Banner_icon | img_url: 'master'}}"></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="right_images">
+    <img src="{{ section.settings.right_image | img_url: 'master'}}">
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "left-icon-right-image",
+    "max_blocks": 6,
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Left Heading"
+      },
+      {
+        "id": "sub_heding",
+        "type": "text",
+        "label": "Left Sub Heading"
+      },
+      {
+        "id": "right_image",
+        "type": "image_picker",
+        "label": "Right Image"
+      }
+	],
+   "blocks": [
+      {
+        "type": "Icon",
+        "name": "Icon",
+    "settings": [
+      {
+        "id": "Banner_icon",
+        "type": "image_picker",
+        "label": "Icon image"
+      },
+      {
+        "id": "icon_text",
+        "type": "text",
+        "label": "Icon Text"
+      }
+      ]
+     }
+   ],
+  "presets": [
+      {
+        "name": "left-icon-right-image",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

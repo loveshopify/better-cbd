@@ -1,0 +1,23 @@
+<style>
+ #AjaxifyCart .additional-checkout-buttons, #ajaxifyCart .additional-checkout-buttons {
+    display:none;
+}
+</style>
+{% if template != 'cart'  %}
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+	<script>
+	rjQuery = jQuery.noConflict( true );
+    var subscription_active='{{shop.metafields.subscriptions.subscription_active}}'
+    function get_cookie(k){return(document.cookie.match('(^|; )'+k+'=([^;]*)')||0)[2]}
+    if (get_cookie('recharge')=='true' || subscription_active=='true') { 
+        rjQuery('body').on('click','form[action="/checkout"] input[type="submit"], #ajaxifyCart [name="checkout"], #AjaxifyCart [name="checkout"], #shoppingBagInner [name="checkout"]', function(e){
+            e.preventDefault(); 
+            window.location.href = '/cart';
+        })
+        rjQuery('.additional-checkout-buttons').hide()
+        rjQuery(document).ready(function(){
+            rjQuery('.additional-checkout-buttons').hide()
+        })
+    }
+    </script>
+{% endif %}<br>

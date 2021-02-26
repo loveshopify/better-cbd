@@ -1,0 +1,91 @@
+<div class="container two-column-text-with">
+  {% if section.settings.sec_headin != blank %}
+  <h1 class="heading">{{ section.settings.sec_headin }}</h1>
+  {% endif %}
+  {% if section.settings.sub_des != blank %}
+  <p class="sub-heading">{{ section.settings.sub_des }}</p>
+  {% endif %}
+  <div class="grid-one-half">
+    {% for block in section.blocks %}
+    <div class="rt_grid">
+      {% if block.settings.icon_img != blank %}
+      <div class="image">
+        <img src="{{ block.settings.icon_img | img_url: '72x72' }}">
+      </div>
+      {% endif %}
+      {% if block.settings.heading != blank %}
+      <div class="text">
+        <h1>{{ block.settings.heading }}</h1>
+        <p>{{ block.settings.sub_heading }}</p>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="learn_more_btn">
+    <a href="{{ section.settings.url }}">LEARN MORE</a>
+  </div>
+</div>
+
+
+{% schema %}
+{
+"name": "Two-column-text-with-icon",
+"settings": [
+    {
+      "id": "sec_headin",
+      "type": "text",
+      "label": "Main Heading"
+    },
+    {
+      "id": "sub_des",
+      "type": "text",
+      "label": "Main Sub Heading"
+    },
+   {
+      "id": "url",
+      "type": "url",
+      "label": "Learn More Url"
+    }
+],
+
+"name": "column-text-with-icon",
+"blocks":[
+    {
+"type": "icon",
+"name": "column-text-with-icon",
+"settings": [
+    {
+      "type": "image_picker",
+      "id": "icon_img",
+      "label": "Image"
+    },
+   {
+      "type": "text",
+      "id": "heading",
+      "label": "heading"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub heading"
+    }
+
+  ]
+ }
+],
+"presets": [
+    {
+      "name": "Two-column-text-with-icon",
+      "category": "TEXT"
+    }
+
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

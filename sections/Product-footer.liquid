@@ -1,0 +1,28 @@
+<div class="product-footer">
+  <div class="custom_footer">
+    <p>Have a question?</p>
+    <h1><a href="mailto:{{section.settings.email}}">{{section.settings.email}}</a></h1>
+    {% include 'social-icons' %}
+  </div>
+  <div class="copyright">© 2020. All Right Reserved. </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Product-footer",
+    "settings": [
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

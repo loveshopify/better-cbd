@@ -1,0 +1,89 @@
+<div class="container main_img-with-text">
+  <div class="rt_grid">
+    {% if section.settings.first_img != blank  %}
+    <img src="{{ section.settings.first_img | img_url:'80x80' }}">
+    {% endif %}
+    {% if section.settings.first_des != blank  %}
+    <p>{{ section.settings.first_des }}</p>
+    {% endif %}
+  </div>
+  <div class="rt_grid">
+    {% if section.settings.second_img != blank  %}
+    <img src="{{ section.settings.second_img | img_url:'80x80' }}">
+    {% endif %}
+    {% if section.settings.second_des != blank  %}
+    <p>{{ section.settings.second_des }}</p>
+    {% endif %}
+  </div>
+  <div class="rt_grid">
+    {% if section.settings.third_img != blank  %}
+    <img src="{{ section.settings.third_img | img_url:'80x80' }}">
+    {% endif %}
+    {% if section.settings.third_des != blank  %}
+    <p>{{ section.settings.third_des }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+@media screen and (max-width: 580px) {
+.main_img-with-text {
+    display: block;
+}
+.main_img-with-text>div {
+    width: 100%;
+    padding: 15px 0;
+}
+}
+</style>
+{% schema %}
+{
+"name": "Text-with-icon",
+"settings": [
+    {
+      "id": "first_img",
+      "type": "image_picker",
+      "label": "First image"
+    },
+    {
+      "id": "first_des",
+      "type": "text",
+      "label": "First description"
+    },
+    {
+      "id": "second_img",
+      "type": "image_picker",
+      "label": "Second image"
+    },
+    {
+      "id": "second_des",
+      "type": "text",
+      "label": "Second description"
+    },
+    {
+      "id": "third_img",
+      "type": "image_picker",
+      "label": "Third image"
+    },
+    {
+      "id": "third_des",
+      "type": "text",
+      "label": "Third description"
+    }
+
+],
+"presets": [
+    {
+      "name": "Text-with-icon",
+      "category": "TEXT"
+    }
+
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

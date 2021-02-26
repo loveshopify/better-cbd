@@ -1,0 +1,32 @@
+<div class="C2_image_section">
+  <img src="{{ section.settings.banner_img | img_url: 'master'}}">
+  <div class="main_banner">
+    <div class="banner_text">
+      <h2 class="container">{{ section.settings.third_des }}</h2>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Banner",
+    "settings": [
+   {
+      "id": "banner_img",
+      "type": "image_picker",
+      "label": "Banner"
+   },
+   {
+      "id": "third_des",
+      "type": "textarea",
+      "label": "Banner Description"
+   }
+ ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

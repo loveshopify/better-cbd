@@ -1,0 +1,47 @@
+
+<div class="container left-icon-right">
+  <div class="right_images">
+    <img src="{{ section.settings.right_image | img_url: 'master'}}">
+  </div>
+  <div class="left-icon left_padding">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.sub_heding }}</p>
+    <a href="{{section.settings.url}}">LEARN MORE</a>
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "image-with-text",
+    "settings": [
+      {
+        "id": "right_image",
+        "type": "image_picker",
+        "label": "Left Image"
+      },
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Right Heading"
+      },
+      {
+        "id": "sub_heding",
+        "type": "text",
+        "label": "Right Sub Heading"
+      },
+      {
+        "id": "url",
+        "type": "url",
+        "label": "Button url"
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
